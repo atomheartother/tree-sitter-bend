@@ -2,7 +2,7 @@
 
 Tree-sitter grammar for [Bend](https://github.com/HigherOrderCO/Bend/).
 
-!["universe"](img/demo1.webp?raw=true "Simple highlighting demo")
+!["universe"](img/demo1.jpg?raw=true "Simple highlighting demo")
 
 ## Installation
 
