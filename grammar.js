@@ -139,10 +139,7 @@ module.exports = grammar({
       $.block
     )),
 
-    variable: $ => choice(
-      $.identifier,
-      seq(repeat1(seq($.identifier, token.immediate('.'))), $.identifier),
-    ),
+    variable: $ => seq($.identifier, repeat(seq('.', $.identifier))),
 
     match: $ => prec.right(seq(
       choice('match', 'fold'),
@@ -185,12 +182,13 @@ module.exports = grammar({
     ),
 
     _object_property: $ => choice(
-      $.identifier, seq(
+      $.identifier,
+      seq(
         field('tilde', '~'),
         $.identifier
       )),
 
-    type_name: $ => seq(repeat(seq($.identifier, token.immediate('/'))),$.identifier),
+    type_name: $ => seq($.identifier, repeat(seq(token.immediate('/'), $.identifier))),
 
     string: $ => /".*"/,
 
