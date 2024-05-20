@@ -1,0 +1,75 @@
+==================
+Object declaration (1 field)
+==================
+
+type Shape:
+  Circle { radius }
+  Rectangle { width, height }
+
+def area(shape):
+  match shape:
+    case Shape/Circle:
+      return 3.14 * shape.radius ** 2.0
+    case Shape/Rectangle:
+      return shape.width * shape.height
+
+def main:
+  return area(Shape/Circle { radius: 10.0 })
+
+---
+(source_file
+  (type_declaration
+    (identifier)
+    (object_details
+      (type_name
+        (identifier))
+      (identifier))
+    (object_details
+      (type_name
+        (identifier))
+      (identifier)
+      (identifier)))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (identifier))
+    body: (block
+      (match
+        (identifier)
+        (match_case
+          (type_name
+            (identifier)
+            (identifier))
+          (block
+            (return_statement
+              (number)
+              (variable
+                (identifier)
+                (identifier))
+              (number))))
+        (match_case
+          (type_name
+            (identifier)
+            (identifier))
+          (block
+            (return_statement
+              (variable
+                (identifier)
+                (identifier))
+              (variable
+                (identifier)
+                (identifier))))))))
+  (function_declaration
+    name: (identifier)
+    body: (block
+      (return_statement
+        (function_call
+          name: (identifier)
+          (object_definition
+            (type_name
+              (identifier)
+              (identifier))
+            (field_assignment
+              (identifier)
+              (number))))))))
+

@@ -352,7 +352,18 @@
   {
     "type": "object_details",
     "named": true,
-    "fields": {},
+    "fields": {
+      "tilde": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "~",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -460,6 +471,10 @@
         {
           "type": "object_declaration",
           "named": true
+        },
+        {
+          "type": "type_declaration",
+          "named": true
         }
       ]
     }
@@ -537,6 +552,25 @@
         },
         {
           "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "object_details",
           "named": true
         }
       ]
@@ -661,6 +695,10 @@
     "named": false
   },
   {
+    "type": "fold",
+    "named": false
+  },
+  {
     "type": "identifier",
     "named": true
   },
@@ -693,11 +731,19 @@
     "named": false
   },
   {
+    "type": "type",
+    "named": false
+  },
+  {
     "type": "{",
     "named": false
   },
   {
     "type": "}",
+    "named": false
+  },
+  {
+    "type": "~",
     "named": false
   }
 ]

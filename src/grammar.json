@@ -21,6 +21,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "type_declaration"
+        },
+        {
+          "type": "SYMBOL",
           "name": "assignment_operation"
         },
         {
@@ -28,6 +32,34 @@
           "name": "function_call"
         }
       ]
+    },
+    "type_declaration": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "type"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "identifier"
+          },
+          {
+            "type": "STRING",
+            "value": ":"
+          },
+          {
+            "type": "REPEAT1",
+            "content": {
+              "type": "SYMBOL",
+              "name": "object_details"
+            }
+          }
+        ]
+      }
     },
     "function_declaration": {
       "type": "SEQ",
@@ -150,7 +182,7 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "identifier"
+                    "name": "_object_property"
                   },
                   {
                     "type": "STRING",
@@ -164,7 +196,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "identifier"
+                  "name": "_object_property"
                 },
                 {
                   "type": "BLANK"
@@ -374,8 +406,11 @@
           }
         },
         {
-          "type": "STRING",
-          "value": "("
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "("
+          }
         },
         {
           "type": "SEQ",
@@ -530,8 +565,17 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "STRING",
-            "value": "match"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "match"
+              },
+              {
+                "type": "STRING",
+                "value": "fold"
+              }
+            ]
           },
           {
             "type": "SYMBOL",
@@ -876,6 +920,32 @@
         {
           "type": "SYMBOL",
           "name": "_rValue"
+        }
+      ]
+    },
+    "_object_property": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "tilde",
+              "content": {
+                "type": "STRING",
+                "value": "~"
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            }
+          ]
         }
       ]
     },

@@ -6,8 +6,12 @@
 "switch" @keyword
 "match" @keyword
 "case" @keyword
+"type" @keyword
+"open" @keyword
+"fold" @keyword
 
 (function_declaration name: (identifier) @function)
 (function_call name: (identifier) @function)
 (type_name (identifier) @type)
 (string) @string
+(number) @number

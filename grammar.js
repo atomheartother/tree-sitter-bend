@@ -12,10 +12,17 @@ module.exports = grammar({
     _definition: $ => choice(
       $.function_declaration,
       $.object_declaration,
-      // $.type_declaration,
+      $.type_declaration,
       $.assignment_operation,
       $.function_call,
     ),
+
+    type_declaration: $ => prec.right(seq(
+      'type',
+      $.identifier,
+      ':',
+      repeat1($.object_details)
+    )),
 
     function_declaration: $ => seq(
       'def',
@@ -39,7 +46,7 @@ module.exports = grammar({
     object_details: $ => seq(
       $.type_name,
       '{',
-      make_list($.identifier),
+        make_list($._object_property),
       '}'
     ),
 
@@ -85,7 +92,7 @@ module.exports = grammar({
 
     function_call: $ => seq(
       field('name', $.identifier),
-      '(',
+      token.immediate('('),
       make_list($._rValue),
       ')',
     ),
@@ -116,7 +123,7 @@ module.exports = grammar({
     ),
 
     match: $ => prec.right(seq(
-      'match',
+      choice('match', 'fold'),
       $.identifier,
       ':',
       repeat1($.match_case),
@@ -145,7 +152,7 @@ module.exports = grammar({
     object_definition: $ => prec.right(seq(
      $.type_name,
       '{',
-      make_list($.field_assignment),
+        make_list($.field_assignment),
       '}'
     )),
 
@@ -154,6 +161,12 @@ module.exports = grammar({
       ':',
       $._rValue,
     ),
+
+    _object_property: $ => choice(
+      $.identifier, seq(
+        field('tilde', '~'),
+        $.identifier
+      )),
 
     type_name: $ => seq(repeat(seq($.identifier, token.immediate('/'))),$.identifier),
 
