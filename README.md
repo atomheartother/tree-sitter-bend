@@ -2,6 +2,8 @@
 
 Tree-sitter grammar for [Bend](https://github.com/HigherOrderCO/Bend/).
 
+!["universe"](img/demo1.webp?raw=true "Simple highlighting demo")
+
 ## Installation
 
 This project isn't published to nvim-treesitter yet, in the meatime you can do a local install:
