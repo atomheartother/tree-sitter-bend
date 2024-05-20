@@ -18,3 +18,18 @@
 (type_name (identifier) @type)
 (string) @string
 (number) @number
+
+
+"-" @operator
+"=" @operator
+"!=" @operator
+"*" @operator
+"**" @operator
+"&&" @operator
+"+" @operator
+"<" @operator
+"<=" @operator
+">=" @operator
+"==" @operator
+">" @operator
+"||" @operator
