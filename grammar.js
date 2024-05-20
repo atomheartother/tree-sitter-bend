@@ -48,8 +48,12 @@ module.exports = grammar({
 
     object_details: $ => seq(
       $.type_name,
+      optional($._object_attributes_declaration)
+    ),
+
+    _object_attributes_declaration: $ => seq(
       '{',
-        make_list($.object_property),
+      make_list($.object_property),
       '}'
     ),
 
@@ -94,6 +98,7 @@ module.exports = grammar({
       $.string,
       $.number,
       $.object_definition,
+      $.enum,
       seq('(', $._rValue, ')'),
       $._binaryOperation,
       $.builtin_function_call,
@@ -165,8 +170,6 @@ module.exports = grammar({
       $.block
     )),
 
-    variable: $ => seq($.identifier, repeat(seq(token.immediate('.'), field('property', $.identifier)))),
-
     match: $ => prec.right(seq(
       choice('match', 'fold'),
       $.identifier,
@@ -197,11 +200,19 @@ module.exports = grammar({
       prec.left(1, seq($._rValue, '-', $._rValue)),
     ),
 
-    object_definition: $ => prec.right(seq(
-     $.type_name,
-      '{',
-        make_list($.field_assignment),
-      '}'
+    object_definition: $ => prec.right(choice(
+      seq(
+       $.type_name,
+        '{',
+          make_list($.field_assignment),
+        '}'
+      ),
+      seq(
+        $.type_name,
+        '(',
+          make_list($._rValue),
+        ')'
+      )
     )),
 
     field_assignment: $ => seq(
@@ -218,7 +229,11 @@ module.exports = grammar({
       )
     ),
 
+    variable: $ => seq($.identifier, repeat(seq(token.immediate('.'), field('property', $.identifier)))),
+
     type_name: $ => seq($.identifier, repeat(seq(token.immediate('/'), $.identifier))),
+
+    enum: $ => seq(repeat1(seq($.identifier, token.immediate('/'))), field('value', $.identifier)),
 
     string: () => /".*"/,
 
@@ -243,11 +258,18 @@ module.exports = grammar({
 
     comment: () => token(seq('\#', /(\\+(.|\r?\n)|[^\\\n])*/))
   },
+
   // This and the comment regex were stolen from:
   // https://github.com/tree-sitter/tree-sitter-c/blob/master/grammar.js#L38
   extras: $ => [
     /\s|\\\r?\n/,
     $.comment
-  ]
+  ],
+
+  conflicts: $ => [
+    [$.type_name, $.enum],
+    [$.type_name, $.variable],
+  ],
+
 });
 

@@ -5,6 +5,7 @@
 "else" @keyword
 "switch" @keyword
 "match" @keyword
+"fold" @keyword
 "case" @keyword
 "type" @keyword
 "open" @keyword
@@ -22,6 +23,8 @@
 (field_assignment name: (identifier) @attribute)
 (object_property) @attribute
 (variable property: (identifier) @property)
+(enum (identifier) @type)
+(enum value: (identifier) @property)
 
 "-" @operator
 "=" @operator
