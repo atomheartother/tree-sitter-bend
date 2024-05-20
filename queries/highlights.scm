@@ -37,4 +37,6 @@
 ">" @operator
 "||" @operator
 
+"." @delimiter
+
 (comment) @comment
