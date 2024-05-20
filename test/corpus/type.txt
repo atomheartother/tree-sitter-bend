@@ -49,7 +49,7 @@ def main:
               (number)
               (variable
                 (identifier)
-                (identifier))
+                property: (identifier))
               (number))))
         (match_case
           (type_name
@@ -59,10 +59,10 @@ def main:
             (return_statement
               (variable
                 (identifier)
-                (identifier))
+                property: (identifier))
               (variable
                 (identifier)
-                (identifier))))))))
+                property: (identifier))))))))
   (function_declaration
     name: (identifier)
     body: (block
@@ -78,7 +78,7 @@ def main:
               (number))))))))
 
 ==================
-bend
+Bend
 ==================
 
 type Tree:
@@ -116,7 +116,8 @@ def main():
     body: (block
       (bend
         (assignment_operation
-          (identifier)
+          (variable
+            (identifier))
           (number))
         (bend_when
           (variable
@@ -124,7 +125,8 @@ def main():
           (number)
           (block
             (assignment_operation
-              (identifier)
+              (variable
+                (identifier))
               (object_definition
                 (type_name
                   (identifier)
@@ -146,7 +148,8 @@ def main():
         (bend_else
           (block
             (assignment_operation
-              (identifier)
+              (variable
+                (identifier))
               (object_definition
                 (type_name
                   (identifier)

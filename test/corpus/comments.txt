@@ -37,10 +37,12 @@ def main:
     body: (block
       (bend
         (assignment_operation
-          (identifier)
+          (variable
+            (identifier))
           (number))
         (assignment_operation
-          (identifier)
+          (variable
+            (identifier))
           (number))
         (bend_when
           (variable
@@ -49,7 +51,8 @@ def main:
             (identifier))
           (block
             (assignment_operation
-              (identifier)
+              (variable
+                (identifier))
               (tuple
                 (builtin_function_call
                   (builtin_function)
@@ -71,13 +74,15 @@ def main:
         (bend_else
           (block
             (assignment_operation
-              (identifier)
+              (variable
+                (identifier))
               (variable
                 (identifier))
               (number))
             (comment)
             (assignment_operation
-              (identifier)
+              (variable
+                (identifier))
               (function_call
                 name: (identifier)
                 (variable
@@ -101,7 +106,8 @@ def main:
     body: (block
       (bend
         (assignment_operation
-          (identifier)
+          (variable
+            (identifier))
           (number))
         (bend_when
           (variable
@@ -109,7 +115,8 @@ def main:
           (number)
           (block
             (assignment_operation
-              (identifier)
+              (variable
+                (identifier))
               (builtin_function_call
                 (builtin_function)
                 (variable
@@ -118,7 +125,8 @@ def main:
         (bend_else
           (block
             (assignment_operation
-              (identifier)
+              (variable
+                (identifier))
               (number))
             (return_statement
               (variable

@@ -79,21 +79,23 @@ def main():
         (variable
           (identifier)))
       (assignment_operation
-        (identifier)
         (variable
-          (identifier)
           (identifier))
         (variable
           (identifier)
-          (identifier)))
+          property: (identifier))
+        (variable
+          (identifier)
+          property: (identifier)))
       (assignment_operation
-        (identifier)
         (variable
-          (identifier)
           (identifier))
         (variable
           (identifier)
-          (identifier)))
+          property: (identifier))
+        (variable
+          (identifier)
+          property: (identifier)))
       (return_statement
         (variable
           (identifier))

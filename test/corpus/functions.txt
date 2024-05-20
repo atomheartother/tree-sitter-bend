@@ -87,7 +87,8 @@ def main:
     name: (identifier)
     body: (block
       (assignment_operation
-        (identifier)
+        (variable
+          (identifier))
         (lambda
           (identifier)
           (variable
@@ -97,4 +98,3 @@ def main:
         (function_call
           name: (identifier)
           (number))))))
-

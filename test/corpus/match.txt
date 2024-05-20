@@ -11,12 +11,14 @@ def main:
       return 0
 
 ---
+
 (source_file
   (function_declaration
     name: (identifier)
     body: (block
       (assignment_operation
-        (identifier)
+        (variable
+          (identifier))
         (list
           (number)
           (number)
@@ -31,7 +33,7 @@ def main:
             (return_statement
               (variable
                 (identifier)
-                (identifier)))))
+                property: (identifier)))))
         (match_case
           (type_name
             (identifier)

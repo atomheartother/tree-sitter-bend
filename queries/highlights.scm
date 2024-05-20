@@ -21,6 +21,7 @@
 (number) @number
 (field_assignment name: (identifier) @attribute)
 (object_property) @attribute
+(variable property: (identifier) @property)
 
 "-" @operator
 "=" @operator

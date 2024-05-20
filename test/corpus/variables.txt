@@ -1,0 +1,123 @@
+==================
+Destructuring & Tuples
+==================
+
+def warp(d, s, a, b):
+  switch d:
+    case 0:
+      return swap(s + (a > b), a, b)
+    case _:
+      (a.a,a.b) = a
+      (b.a,b.b) = b
+      (A.a,A.b) = warp(d-1, s, a.a, b.a)
+      (B.a,B.b) = warp(d-1, s, a.b, b.b)
+      return ((A.a,B.a),(A.b,B.b))
+
+---
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier))
+    body: (block
+      (switch
+        (variable
+          (identifier))
+        (switch_case
+          (number)
+          (block
+            (return_statement
+              (function_call
+                name: (identifier)
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))))))
+        (switch_case
+          (variable
+            (identifier))
+          (block
+            (assignment_operation
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)))
+            (assignment_operation
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)))
+            (assignment_operation
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)
+                property: (identifier))
+              (function_call
+                name: (identifier)
+                (variable
+                  (identifier))
+                (number)
+                (variable
+                  (identifier))
+                (variable
+                  (identifier)
+                  property: (identifier))
+                (variable
+                  (identifier)
+                  property: (identifier))))
+            (assignment_operation
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)
+                property: (identifier))
+              (function_call
+                name: (identifier)
+                (variable
+                  (identifier))
+                (number)
+                (variable
+                  (identifier))
+                (variable
+                  (identifier)
+                  property: (identifier))
+                (variable
+                  (identifier)
+                  property: (identifier))))
+            (return_statement
+              (tuple
+                (tuple
+                  (variable
+                    (identifier)
+                    property: (identifier))
+                  (variable
+                    (identifier)
+                    property: (identifier)))
+                (tuple
+                  (variable
+                    (identifier)
+                    property: (identifier))
+                  (variable
+                    (identifier)
+                    property: (identifier)))))))))))

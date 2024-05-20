@@ -1,9 +1,9 @@
 
 function make_list(rule, canBeEmpty = true) {
   if (canBeEmpty)
-    return seq(repeat(seq(rule, ',')), optional(rule))
+    return seq(optional(rule), repeat(seq(',', rule)))
   else
-    return seq(repeat(seq(rule, ',')), rule)
+    return seq(rule, repeat(seq(',', rule)))
 }
 
 module.exports = grammar({
@@ -69,7 +69,7 @@ module.exports = grammar({
       $.open
     ),
 
-    assignment_operation: $ => seq($.identifier, '=', $._rValue),
+    assignment_operation: $ => seq($._lValue, '=', $._rValue),
 
     condition: $ => prec.right(seq(
       'if',
@@ -81,6 +81,12 @@ module.exports = grammar({
     return_statement: $ => seq(
       'return',
       $._rValue,
+    ),
+
+    // You can assign to a variable or destructure to a tuple
+    _lValue: $ => choice(
+      $.variable,
+      seq('(', make_list($.variable, false), ')')
     ),
 
     _rValue: $ => prec(10, choice(
@@ -159,7 +165,7 @@ module.exports = grammar({
       $.block
     )),
 
-    variable: $ => seq($.identifier, repeat(seq('.', $.identifier))),
+    variable: $ => seq($.identifier, repeat(seq('.', field('property', $.identifier)))),
 
     match: $ => prec.right(seq(
       choice('match', 'fold'),

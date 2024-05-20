@@ -16,10 +16,6 @@
           "named": true
         },
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "lambda",
           "named": true
         },
@@ -994,9 +990,20 @@
   {
     "type": "variable",
     "named": true,
-    "fields": {},
+    "fields": {
+      "property": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
