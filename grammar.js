@@ -7,7 +7,7 @@ function make_list(rule, canBeEmpty = true) {
 }
 
 module.exports = grammar({
-  name: 'Bend',
+  name: 'bend',
 
   rules: {
     source_file: $ => repeat($._definition),
