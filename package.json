@@ -22,6 +22,8 @@
   },
   "scripts": {
     "install": "node-gyp-build",
+    "build": "tree-sitter generate",
+    "test": "tree-sitter test && tree-sitter parse examples/*.bend",
     "prebuildify": "prebuildify --napi --strip"
   },
   "files": [
