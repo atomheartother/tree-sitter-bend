@@ -36,3 +36,7 @@ dist/
 *.wasm
 *.obj
 *.o
+
+.out.hvm
+.ccls*
+main.bend
