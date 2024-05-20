@@ -1,0 +1,31 @@
+==================
+Object declaration (1 field)
+==================
+
+object V1 { x }
+
+---
+
+(source_file
+  (object_declaration
+    (object_details
+      (type_name
+        (identifier))
+      (identifier))))
+
+==================
+Object declaration (multiple fields)
+==================
+
+object V1 { x, y, z }
+
+---
+
+(source_file
+  (object_declaration
+    (object_details
+      (type_name
+        (identifier))
+      (identifier)
+      (identifier)
+      (identifier))))

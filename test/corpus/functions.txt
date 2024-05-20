@@ -1,0 +1,86 @@
+==================
+Return a string
+==================
+
+def main():
+  return "Hello, world!"
+
+---
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (return_statement
+        (string)))))
+
+==================
+Return a number
+==================
+
+def main():
+  return -1.2
+
+---
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (return_statement
+        (number)))))
+
+
+==================
+Function call
+==================
+def is_even(x):
+  if x % 2 == 0:
+    return "even"
+  else:
+    return "odd"
+
+def main:
+  return is_even(7)
+
+---
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (identifier))
+    body: (block
+      (condition
+        (variable
+          (identifier))
+        (number)
+        (number)
+        (block
+          (return_statement
+            (string)))
+        (block
+          (return_statement
+            (string))))))
+  (function_declaration
+    name: (identifier)
+    body: (block
+      (return_statement
+        (function_call
+          name: (identifier)
+          (number))))))
+
+==================
+Switch/Case
+==================
+def is_even(x):
+  if x % 2 == 0:
+    return "even"
+  else:
+    return "odd"
+
+def main:
+  return is_even(7)
+

@@ -1,0 +1,41 @@
+==================
+Match / Case
+==================
+
+def main:
+  my_list = [1, 2, 3]
+  match my_list:
+    case List/Cons:
+      return my_list.head
+    case List/Nil:
+      return 0
+
+---
+(source_file
+  (function_declaration
+    name: (identifier)
+    body: (block
+      (assignment_operation
+        (identifier)
+        (list
+          (number)
+          (number)
+          (number)))
+      (match
+        (identifier)
+        (match_case
+          (type_name
+            (identifier)
+            (identifier))
+          (block
+            (return_statement
+              (variable
+                (identifier)
+                (identifier)))))
+        (match_case
+          (type_name
+            (identifier)
+            (identifier))
+          (block
+            (return_statement
+              (number))))))))
