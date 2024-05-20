@@ -264,6 +264,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "bend"
+        },
+        {
+          "type": "SYMBOL",
           "name": "open"
         }
       ]
@@ -452,6 +456,82 @@
         {
           "type": "STRING",
           "value": ")"
+        }
+      ]
+    },
+    "bend": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "bend"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "assignment_operation"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  }
+                ]
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "assignment_operation"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bend_when"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bend_else"
+        }
+      ]
+    },
+    "bend_when": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "when"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_rValue"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        }
+      ]
+    },
+    "bend_else": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "else"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
         }
       ]
     },

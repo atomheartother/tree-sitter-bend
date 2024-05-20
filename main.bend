@@ -2,16 +2,10 @@ type Tree:
   Node { ~lft, ~rgt }
   Leaf { val }
 
-def sum(tree):
-  fold tree:
-    case Tree/Node:
-      return tree.lft + tree.rgt
-    case Tree/Leaf:
-      return tree.val
-
-def main:
-  tree = Tree/Node {
-    lft: Tree/Node { lft: Tree/Leaf { val: 1 }, rgt: Tree/Leaf { val: 2 } },
-    rgt: Tree/Node { lft: Tree/Leaf { val: 3 }, rgt: Tree/Leaf { val: 4 } }
-  }
-  return sum(tree)
+def main():
+  bend x = 0:
+    when x < 3:
+      tree = Tree/Node { lft: fork(x + 1), rgt: fork(x + 1) }
+    else:
+      tree = Tree/Leaf { val: 7 }
+  return tree

@@ -1,5 +1,5 @@
 ==================
-Object declaration (1 field)
+Type declaration
 ==================
 
 type Shape:
@@ -72,4 +72,82 @@ def main:
             (field_assignment
               (identifier)
               (number))))))))
+
+==================
+bend
+==================
+
+type Tree:
+  Node { ~lft, ~rgt }
+  Leaf { val }
+
+def main():
+  bend x = 0:
+    when x < 3:
+      tree = Tree/Node { lft: fork(x + 1), rgt: fork(x + 1) }
+    else:
+      tree = Tree/Leaf { val: 7 }
+  return tree
+
+---
+
+(source_file
+  (type_declaration
+    name: (identifier)
+    (object_details
+      (type_name
+        (identifier))
+      (identifier)
+      (identifier))
+    (object_details
+      (type_name
+        (identifier))
+      (identifier)))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (bend
+        (assignment_operation
+          (identifier)
+          (number))
+        (bend_when
+          (variable
+            (identifier))
+          (number)
+          (block
+            (assignment_operation
+              (identifier)
+              (object_definition
+                (type_name
+                  (identifier)
+                  (identifier))
+                (field_assignment
+                  (identifier)
+                  (function_call
+                    name: (identifier)
+                    (variable
+                      (identifier))
+                    (number)))
+                (field_assignment
+                  (identifier)
+                  (function_call
+                    name: (identifier)
+                    (variable
+                      (identifier))
+                    (number)))))))
+        (bend_else
+          (block
+            (assignment_operation
+              (identifier)
+              (object_definition
+                (type_name
+                  (identifier)
+                  (identifier))
+                (field_assignment
+                  (identifier)
+                  (number))))
+            (return_statement
+              (variable
+                (identifier)))))))))
 

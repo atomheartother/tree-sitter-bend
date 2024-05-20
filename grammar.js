@@ -1,6 +1,9 @@
 
-function make_list(rule) {
-  return seq(repeat(seq(rule, ',')), optional(rule))
+function make_list(rule, canBeEmpty = true) {
+  if (canBeEmpty)
+    return seq(repeat(seq(rule, ',')), optional(rule))
+  else
+    return seq(repeat(seq(rule, ',')), rule)
 }
 
 module.exports = grammar({
@@ -62,6 +65,7 @@ module.exports = grammar({
       $.function_call,
       $.switch,
       $.match,
+      $.bend,
       $.open
     ),
 
@@ -95,6 +99,24 @@ module.exports = grammar({
       token.immediate('('),
       make_list($._rValue),
       ')',
+    ),
+
+    bend: $ => seq(
+      'bend',
+      make_list($.assignment_operation, false),
+      ':',
+      $.bend_when,
+      $.bend_else,
+    ),
+
+    bend_when: $ => seq(
+      'when',
+      $._rValue,
+      $.block
+    ),
+    bend_else: $ => seq(
+      'else',
+      $.block
     ),
 
     open: $ => seq(
