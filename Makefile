@@ -1,6 +1,6 @@
 VERSION := 0.0.1
 
-LANGUAGE_NAME := tree-sitter-Bend
+LANGUAGE_NAME := tree-sitter-bend
 
 # repository
 SRC_DIR := src
