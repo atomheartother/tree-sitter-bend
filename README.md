@@ -33,3 +33,11 @@ parser_config.bend= {
 - Run `tree-sitter generate` at the root of this repo
 - Open vim and run `:TSUpdate`
 - Copy `query/highlights.scm` if you didn't set up a symlink.
+
+## Recognizing `.bend` files
+
+If you haven't set up your `nvim` to recognize `.bend` files, you can put this in `~/.config/nvim/ftdetect/bend.vim`:
+
+```vim
+au BufRead,BufNewFile *.bend                set filetype=bend
+```
