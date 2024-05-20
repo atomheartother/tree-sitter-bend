@@ -12,6 +12,7 @@
 
 (function_declaration name: (identifier) @function)
 (function_call name: (identifier) @function)
+(type_declaration name: (identifier) @type)
 (type_name (identifier) @type)
 (string) @string
 (number) @number

@@ -19,7 +19,7 @@ module.exports = grammar({
 
     type_declaration: $ => prec.right(seq(
       'type',
-      $.identifier,
+      field('name', $.identifier),
       ':',
       repeat1($.object_details)
     )),

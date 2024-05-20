@@ -19,7 +19,7 @@ def main:
 ---
 (source_file
   (type_declaration
-    (identifier)
+    name: (identifier)
     (object_details
       (type_name
         (identifier))
