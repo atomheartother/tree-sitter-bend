@@ -273,29 +273,25 @@
       ]
     },
     "assignment_operation": {
-      "type": "PREC_RIGHT",
-      "value": 10,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "identifier"
-          },
-          {
-            "type": "STRING",
-            "value": "="
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_rValue"
-          }
-        ]
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_rValue"
+        }
+      ]
     },
     "condition": {
       "type": "PREC_RIGHT",
-      "value": 100,
+      "value": 0,
       "content": {
         "type": "SEQ",
         "members": [

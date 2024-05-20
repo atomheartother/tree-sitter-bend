@@ -69,9 +69,9 @@ module.exports = grammar({
       $.open
     ),
 
-    assignment_operation: $ => prec.right(10, seq($.identifier, '=', $._rValue)),
+    assignment_operation: $ => seq($.identifier, '=', $._rValue),
 
-    condition: $ => prec.right(100, seq(
+    condition: $ => prec.right(seq(
       'if',
       $._rValue,
       $.block,
