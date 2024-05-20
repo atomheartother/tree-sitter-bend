@@ -36,7 +36,7 @@ module.exports = grammar({
 
 
     parameter_list: $ => seq(
-      '(',
+      token.immediate('('),
         make_list($.identifier),
       ')'
     ),
@@ -165,7 +165,7 @@ module.exports = grammar({
       $.block
     )),
 
-    variable: $ => seq($.identifier, repeat(seq('.', field('property', $.identifier)))),
+    variable: $ => seq($.identifier, repeat(seq(token.immediate('.'), field('property', $.identifier)))),
 
     match: $ => prec.right(seq(
       choice('match', 'fold'),
