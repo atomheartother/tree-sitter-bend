@@ -186,7 +186,7 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "_object_property"
+                    "name": "object_property"
                   },
                   {
                     "type": "STRING",
@@ -200,7 +200,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "_object_property"
+                  "name": "object_property"
                 },
                 {
                   "type": "BLANK"
@@ -393,6 +393,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "builtin_function_call"
+          },
+          {
+            "type": "SYMBOL",
             "name": "function_call"
           },
           {
@@ -401,6 +405,68 @@
           }
         ]
       }
+    },
+    "builtin_function_call": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "builtin_function"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "("
+          }
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_rValue"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  }
+                ]
+              }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_rValue"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "builtin_function": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fork"
+        }
+      ]
     },
     "function_call": {
       "type": "SEQ",
@@ -1058,7 +1124,7 @@
         }
       ]
     },
-    "_object_property": {
+    "object_property": {
       "type": "CHOICE",
       "members": [
         {

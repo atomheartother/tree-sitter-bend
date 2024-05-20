@@ -49,7 +49,7 @@ module.exports = grammar({
     object_details: $ => seq(
       $.type_name,
       '{',
-        make_list($._object_property),
+        make_list($.object_property),
       '}'
     ),
 
@@ -90,9 +90,19 @@ module.exports = grammar({
       $.object_definition,
       seq('(', $._rValue, ')'),
       $._binaryOperation,
+      $.builtin_function_call,
       $.function_call,
       $.list,
     )),
+
+    builtin_function_call: $ => seq(
+      $.builtin_function,
+      token.immediate('('),
+      make_list($._rValue),
+      ')',
+    ),
+
+    builtin_function: $ => choice('fork'),
 
     function_call: $ => seq(
       field('name', $.identifier),
@@ -184,20 +194,21 @@ module.exports = grammar({
       $._rValue,
     ),
 
-    _object_property: $ => choice(
+    object_property: $ => choice(
       $.identifier,
       seq(
-        field('tilde', '~'),
+        field('tilde', '\~'),
         $.identifier
-      )),
+      )
+    ),
 
     type_name: $ => seq($.identifier, repeat(seq(token.immediate('/'), $.identifier))),
 
     string: $ => /".*"/,
 
-    identifier: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
+    identifier: () => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
-    number: $ => choice(
+    number: () => choice(
       /-?\d+/,
       /-?\d+.\d+/
     ),

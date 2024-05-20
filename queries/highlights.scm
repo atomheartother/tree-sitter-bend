@@ -14,11 +14,11 @@
 
 (function_declaration name: (identifier) @function)
 (function_call name: (identifier) @function)
+(builtin_function) @function.builtin
 (type_declaration name: (identifier) @type)
 (type_name (identifier) @type)
 (string) @string
 (number) @number
-
 
 "-" @operator
 "=" @operator
