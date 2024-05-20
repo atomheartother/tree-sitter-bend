@@ -17,18 +17,22 @@ def main:
   return area(Shape/Circle { radius: 10.0 })
 
 ---
+
 (source_file
   (type_declaration
     name: (identifier)
     (object_details
       (type_name
         (identifier))
-      (identifier))
+      (object_property
+        (identifier)))
     (object_details
       (type_name
         (identifier))
-      (identifier)
-      (identifier)))
+      (object_property
+        (identifier))
+      (object_property
+        (identifier))))
   (function_declaration
     name: (identifier)
     parameters: (parameter_list
@@ -97,12 +101,15 @@ def main():
     (object_details
       (type_name
         (identifier))
-      (identifier)
-      (identifier))
+      (object_property
+        (identifier))
+      (object_property
+        (identifier)))
     (object_details
       (type_name
         (identifier))
-      (identifier)))
+      (object_property
+        (identifier))))
   (function_declaration
     name: (identifier)
     parameters: (parameter_list)
@@ -124,15 +131,15 @@ def main():
                   (identifier))
                 (field_assignment
                   (identifier)
-                  (function_call
-                    name: (identifier)
+                  (builtin_function_call
+                    (builtin_function)
                     (variable
                       (identifier))
                     (number)))
                 (field_assignment
                   (identifier)
-                  (function_call
-                    name: (identifier)
+                  (builtin_function_call
+                    (builtin_function)
                     (variable
                       (identifier))
                     (number)))))))
@@ -150,4 +157,3 @@ def main():
             (return_statement
               (variable
                 (identifier)))))))))
-

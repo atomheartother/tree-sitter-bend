@@ -11,7 +11,8 @@ object V1 { x }
     (object_details
       (type_name
         (identifier))
-      (identifier))))
+      (object_property
+        (identifier)))))
 
 ==================
 Object declaration (multiple fields)
@@ -26,9 +27,13 @@ object V1 { x, y, z }
     (object_details
       (type_name
         (identifier))
-      (identifier)
-      (identifier)
-      (identifier))))
+      (object_property
+        (identifier))
+      (object_property
+        (identifier))
+      (object_property
+        (identifier)))))
+
 
 ==================
 Open
@@ -47,13 +52,16 @@ def main():
   return distance(V2 { x: 10.0, y: 10.0 }, V2 { x: 20.0, y: 20.0 })
 
 ---
+
 (source_file
   (object_declaration
     (object_details
       (type_name
         (identifier))
-      (identifier)
-      (identifier)))
+      (object_property
+        (identifier))
+      (object_property
+        (identifier))))
   (function_declaration
     name: (identifier)
     parameters: (parameter_list
