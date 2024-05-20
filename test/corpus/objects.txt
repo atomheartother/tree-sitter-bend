@@ -29,3 +29,95 @@ object V1 { x, y, z }
       (identifier)
       (identifier)
       (identifier))))
+
+==================
+Open
+==================
+
+object V2 { x, y }
+
+def distance(a, b):
+  open V2: a
+  open V2: b
+  dx = b.x - a.x
+  dy = b.y - a.y
+  return (dx * dx + dy * dy) ** 0.5
+
+def main():
+  return distance(V2 { x: 10.0, y: 10.0 }, V2 { x: 20.0, y: 20.0 })
+
+---
+(source_file
+  (object_declaration
+    (object_details
+      (type_name
+        (identifier))
+      (identifier)
+      (identifier)))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (identifier)
+      (identifier))
+    body: (block
+      (open
+        (type_name
+          (identifier))
+        (variable
+          (identifier)))
+      (open
+        (type_name
+          (identifier))
+        (variable
+          (identifier)))
+      (assignment_operation
+        (identifier)
+        (variable
+          (identifier)
+          (identifier))
+        (variable
+          (identifier)
+          (identifier)))
+      (assignment_operation
+        (identifier)
+        (variable
+          (identifier)
+          (identifier))
+        (variable
+          (identifier)
+          (identifier)))
+      (return_statement
+        (variable
+          (identifier))
+        (variable
+          (identifier))
+        (variable
+          (identifier))
+        (variable
+          (identifier))
+        (number))))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (return_statement
+        (function_call
+          name: (identifier)
+          (object_definition
+            (type_name
+              (identifier))
+            (field_assignment
+              (identifier)
+              (number))
+            (field_assignment
+              (identifier)
+              (number)))
+          (object_definition
+            (type_name
+              (identifier))
+            (field_assignment
+              (identifier)
+              (number))
+            (field_assignment
+              (identifier)
+              (number))))))))

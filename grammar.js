@@ -43,7 +43,6 @@ module.exports = grammar({
       '}'
     ),
 
-
     block: $ => prec.right(seq(
       ':',
       repeat($._statement),
@@ -95,6 +94,7 @@ module.exports = grammar({
       'open',
       $.type_name,
       ':',
+      $.variable
     ),
 
     switch: $ => prec.right(seq(
