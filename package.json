@@ -34,7 +34,7 @@
   ],
   "tree-sitter": [
     {
-      "scope": "source.Bend",
+      "scope": "source.bend",
       "injection-regex": "^Bend$",
       "file-types": [
         "bend"
