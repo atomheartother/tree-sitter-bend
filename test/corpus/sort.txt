@@ -1,0 +1,454 @@
+==================
+Bitonic sort
+==================
+
+def gen(d, x):
+  switch d:
+    case 0:
+      return x
+    case _:
+      return (gen(d-1, x * 2 + 1), gen(d-1, x * 2))
+
+def sum(d, t):
+  switch d:
+    case 0:
+      return t
+    case _:
+      (t.a, t.b) = t
+      return sum(d-1, t.a) + sum(d-1, t.b)
+
+def swap(s, a, b):
+  switch s:
+    case 0:
+      return (a,b)
+    case _:
+      return (b,a)
+
+def warp(d, s, a, b):
+  switch d:
+    case 0:
+      return swap(s + (a > b), a, b)
+    case _:
+      (a.a,a.b) = a
+      (b.a,b.b) = b
+      (A.a,A.b) = warp(d-1, s, a.a, b.a)
+      (B.a,B.b) = warp(d-1, s, a.b, b.b)
+      return ((A.a,B.a),(A.b,B.b))
+
+def flow(d, s, t):
+  switch d:
+    case 0:
+      return t
+    case _:
+      (t.a, t.b) = t
+      return down(d, s, warp(d-1, s, t.a, t.b))
+
+def down(d,s,t):
+  switch d:
+    case 0:
+      return t
+    case _:
+      (t.a, t.b) = t
+      return (flow(d-1, s, t.a), flow(d-1, s, t.b))
+
+def sort(d, s, t):
+  switch d:
+    case 0:
+      return t
+    case _:
+      (t.a, t.b) = t
+      return flow(d, s, sort(d-1, 0, t.a), sort(d-1, 1, t.b))
+
+def main:
+  return sum(18, sort(18, 0, gen(18, 0)))
+
+---
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (identifier)
+      (identifier))
+    body: (block
+      (switch
+        (variable
+          (identifier))
+        (switch_case
+          (number)
+          (block
+            (return_statement
+              (variable
+                (identifier)))))
+        (switch_case
+          (variable
+            (identifier))
+          (block
+            (return_statement
+              (tuple
+                (function_call
+                  name: (identifier)
+                  (variable
+                    (identifier))
+                  (number)
+                  (variable
+                    (identifier))
+                  (number)
+                  (number))
+                (function_call
+                  name: (identifier)
+                  (variable
+                    (identifier))
+                  (number)
+                  (variable
+                    (identifier))
+                  (number)))))))))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (identifier)
+      (identifier))
+    body: (block
+      (switch
+        (variable
+          (identifier))
+        (switch_case
+          (number)
+          (block
+            (return_statement
+              (variable
+                (identifier)))))
+        (switch_case
+          (variable
+            (identifier))
+          (block
+            (assignment_operation
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)))
+            (return_statement
+              (function_call
+                name: (identifier)
+                (variable
+                  (identifier))
+                (number)
+                (variable
+                  (identifier)
+                  property: (identifier)))
+              (function_call
+                name: (identifier)
+                (variable
+                  (identifier))
+                (number)
+                (variable
+                  (identifier)
+                  property: (identifier)))))))))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (identifier)
+      (identifier)
+      (identifier))
+    body: (block
+      (switch
+        (variable
+          (identifier))
+        (switch_case
+          (number)
+          (block
+            (return_statement
+              (tuple
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))))))
+        (switch_case
+          (variable
+            (identifier))
+          (block
+            (return_statement
+              (tuple
+                (variable
+                  (identifier))
+                (variable
+                  (identifier)))))))))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier))
+    body: (block
+      (switch
+        (variable
+          (identifier))
+        (switch_case
+          (number)
+          (block
+            (return_statement
+              (function_call
+                name: (identifier)
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))))))
+        (switch_case
+          (variable
+            (identifier))
+          (block
+            (assignment_operation
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)))
+            (assignment_operation
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)))
+            (assignment_operation
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)
+                property: (identifier))
+              (function_call
+                name: (identifier)
+                (variable
+                  (identifier))
+                (number)
+                (variable
+                  (identifier))
+                (variable
+                  (identifier)
+                  property: (identifier))
+                (variable
+                  (identifier)
+                  property: (identifier))))
+            (assignment_operation
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)
+                property: (identifier))
+              (function_call
+                name: (identifier)
+                (variable
+                  (identifier))
+                (number)
+                (variable
+                  (identifier))
+                (variable
+                  (identifier)
+                  property: (identifier))
+                (variable
+                  (identifier)
+                  property: (identifier))))
+            (return_statement
+              (tuple
+                (tuple
+                  (variable
+                    (identifier)
+                    property: (identifier))
+                  (variable
+                    (identifier)
+                    property: (identifier)))
+                (tuple
+                  (variable
+                    (identifier)
+                    property: (identifier))
+                  (variable
+                    (identifier)
+                    property: (identifier))))))))))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (identifier)
+      (identifier)
+      (identifier))
+    body: (block
+      (switch
+        (variable
+          (identifier))
+        (switch_case
+          (number)
+          (block
+            (return_statement
+              (variable
+                (identifier)))))
+        (switch_case
+          (variable
+            (identifier))
+          (block
+            (assignment_operation
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)))
+            (return_statement
+              (function_call
+                name: (identifier)
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))
+                (function_call
+                  name: (identifier)
+                  (variable
+                    (identifier))
+                  (number)
+                  (variable
+                    (identifier))
+                  (variable
+                    (identifier)
+                    property: (identifier))
+                  (variable
+                    (identifier)
+                    property: (identifier))))))))))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (identifier)
+      (identifier)
+      (identifier))
+    body: (block
+      (switch
+        (variable
+          (identifier))
+        (switch_case
+          (number)
+          (block
+            (return_statement
+              (variable
+                (identifier)))))
+        (switch_case
+          (variable
+            (identifier))
+          (block
+            (assignment_operation
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)))
+            (return_statement
+              (tuple
+                (function_call
+                  name: (identifier)
+                  (variable
+                    (identifier))
+                  (number)
+                  (variable
+                    (identifier))
+                  (variable
+                    (identifier)
+                    property: (identifier)))
+                (function_call
+                  name: (identifier)
+                  (variable
+                    (identifier))
+                  (number)
+                  (variable
+                    (identifier))
+                  (variable
+                    (identifier)
+                    property: (identifier))))))))))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (identifier)
+      (identifier)
+      (identifier))
+    body: (block
+      (switch
+        (variable
+          (identifier))
+        (switch_case
+          (number)
+          (block
+            (return_statement
+              (variable
+                (identifier)))))
+        (switch_case
+          (variable
+            (identifier))
+          (block
+            (assignment_operation
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)
+                property: (identifier))
+              (variable
+                (identifier)))
+            (return_statement
+              (function_call
+                name: (identifier)
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))
+                (function_call
+                  name: (identifier)
+                  (variable
+                    (identifier))
+                  (number)
+                  (number)
+                  (variable
+                    (identifier)
+                    property: (identifier)))
+                (function_call
+                  name: (identifier)
+                  (variable
+                    (identifier))
+                  (number)
+                  (number)
+                  (variable
+                    (identifier)
+                    property: (identifier))))))))))
+  (function_declaration
+    name: (identifier)
+    body: (block
+      (return_statement
+        (function_call
+          name: (identifier)
+          (number)
+          (function_call
+            name: (identifier)
+            (number)
+            (number)
+            (function_call
+              name: (identifier)
+              (number)
+              (number))))))))
+
