@@ -115,17 +115,17 @@ def main():
             (type_name
               (identifier))
             (field_assignment
-              (identifier)
+              name: (identifier)
               (number))
             (field_assignment
-              (identifier)
+              name: (identifier)
               (number)))
           (object_definition
             (type_name
               (identifier))
             (field_assignment
-              (identifier)
+              name: (identifier)
               (number))
             (field_assignment
-              (identifier)
+              name: (identifier)
               (number))))))))

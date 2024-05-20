@@ -74,7 +74,7 @@ def main:
               (identifier)
               (identifier))
             (field_assignment
-              (identifier)
+              name: (identifier)
               (number))))))))
 
 ==================
@@ -130,14 +130,14 @@ def main():
                   (identifier)
                   (identifier))
                 (field_assignment
-                  (identifier)
+                  name: (identifier)
                   (builtin_function_call
                     (builtin_function)
                     (variable
                       (identifier))
                     (number)))
                 (field_assignment
-                  (identifier)
+                  name: (identifier)
                   (builtin_function_call
                     (builtin_function)
                     (variable
@@ -152,7 +152,7 @@ def main():
                   (identifier)
                   (identifier))
                 (field_assignment
-                  (identifier)
+                  name: (identifier)
                   (number))))
             (return_statement
               (variable

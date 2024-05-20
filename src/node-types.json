@@ -260,7 +260,18 @@
   {
     "type": "field_assignment",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -271,10 +282,6 @@
         },
         {
           "type": "function_call",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {

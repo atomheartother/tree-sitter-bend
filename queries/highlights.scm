@@ -19,6 +19,8 @@
 (type_name (identifier) @type)
 (string) @string
 (number) @number
+(field_assignment name: (identifier) @attribute)
+(object_property) @attribute
 
 "-" @operator
 "=" @operator

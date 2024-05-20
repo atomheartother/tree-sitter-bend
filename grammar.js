@@ -189,7 +189,7 @@ module.exports = grammar({
     )),
 
     field_assignment: $ => seq(
-      $.identifier,
+      field('name', $.identifier),
       ':',
       $._rValue,
     ),
