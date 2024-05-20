@@ -1,0 +1,135 @@
+==================
+Comments
+==================
+# given a shader, returns a square image
+def render(depth, shader):
+  bend d = 0, i = 0:
+    when d < depth:
+      color = (fork(d+1, i*2+0), fork(d+1, i*2+1)) # We even have comments at the end of lines
+    else:
+      width = depth / 2 # Here too
+      color = shader(i % width, i / width)
+  return color
+
+# given a position, returns a color
+# for this demo, it just busy loops
+def demo_shader(x, y):
+  bend i = 0:
+    when i < 100000:
+      color = fork(i + 1)
+    else:
+      color = 0x000001
+  return color
+
+# renders a 256x256 image using demo_shader
+def main:
+  return render(16, demo_shader)
+
+---
+
+(source_file
+  (comment)
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (identifier)
+      (identifier))
+    body: (block
+      (bend
+        (assignment_operation
+          (identifier)
+          (number))
+        (assignment_operation
+          (identifier)
+          (number))
+        (bend_when
+          (variable
+            (identifier))
+          (variable
+            (identifier))
+          (block
+            (assignment_operation
+              (identifier)
+              (tuple
+                (builtin_function_call
+                  (builtin_function)
+                  (variable
+                    (identifier))
+                  (number)
+                  (variable
+                    (identifier))
+                  (number))
+                (builtin_function_call
+                  (builtin_function)
+                  (variable
+                    (identifier))
+                  (number)
+                  (variable
+                    (identifier))
+                  (number))))))
+        (comment)
+        (bend_else
+          (block
+            (assignment_operation
+              (identifier)
+              (variable
+                (identifier))
+              (number))
+            (comment)
+            (assignment_operation
+              (identifier)
+              (function_call
+                name: (identifier)
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))
+                (variable
+                  (identifier))))
+            (return_statement
+              (variable
+                (identifier))))))))
+  (comment)
+  (comment)
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (identifier)
+      (identifier))
+    body: (block
+      (bend
+        (assignment_operation
+          (identifier)
+          (number))
+        (bend_when
+          (variable
+            (identifier))
+          (number)
+          (block
+            (assignment_operation
+              (identifier)
+              (builtin_function_call
+                (builtin_function)
+                (variable
+                  (identifier))
+                (number)))))
+        (bend_else
+          (block
+            (assignment_operation
+              (identifier)
+              (number))
+            (return_statement
+              (variable
+                (identifier))))))))
+  (comment)
+  (function_declaration
+    name: (identifier)
+    body: (block
+      (return_statement
+        (function_call
+          name: (identifier)
+          (number)
+          (variable
+            (identifier)))))))

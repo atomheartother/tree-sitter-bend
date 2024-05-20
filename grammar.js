@@ -93,7 +93,8 @@ module.exports = grammar({
       $.builtin_function_call,
       $.function_call,
       $.list,
-      $.lambda
+      $.lambda,
+      $.tuple,
     )),
 
     builtin_function_call: $ => seq(
@@ -213,7 +214,7 @@ module.exports = grammar({
 
     type_name: $ => seq($.identifier, repeat(seq(token.immediate('/'), $.identifier))),
 
-    string: $ => /".*"/,
+    string: () => /".*"/,
 
     identifier: () => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
@@ -226,7 +227,21 @@ module.exports = grammar({
       '[',
         make_list($._rValue),
       ']'
-    )
-  }
+    ),
+
+    tuple: $ => seq(
+      '(',
+        make_list($._rValue),
+      ')'
+    ),
+
+    comment: () => token(seq('\#', /(\\+(.|\r?\n)|[^\\\n])*/))
+  },
+  // This and the comment regex were stolen from:
+  // https://github.com/tree-sitter/tree-sitter-c/blob/master/grammar.js#L38
+  extras: $ => [
+    /\s|\\\r?\n/,
+    $.comment
+  ]
 });
 
