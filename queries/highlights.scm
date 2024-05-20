@@ -8,9 +8,9 @@
 "case" @keyword
 "type" @keyword
 "open" @keyword
-"fold" @keyword
 "bend" @keyword
 "when" @keyword
+"lambda" @keyword
 
 (function_declaration name: (identifier) @function)
 (function_call name: (identifier) @function)

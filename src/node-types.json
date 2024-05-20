@@ -20,6 +20,10 @@
           "named": true
         },
         {
+          "type": "lambda",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -98,6 +102,10 @@
         },
         {
           "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "lambda",
           "named": true
         },
         {
@@ -192,6 +200,10 @@
           "named": true
         },
         {
+          "type": "lambda",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -232,6 +244,10 @@
         },
         {
           "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "lambda",
           "named": true
         },
         {
@@ -285,6 +301,10 @@
           "named": true
         },
         {
+          "type": "lambda",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -332,6 +352,10 @@
         },
         {
           "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "lambda",
           "named": true
         },
         {
@@ -394,6 +418,81 @@
     }
   },
   {
+    "type": "lambda",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment_operation",
+          "named": true
+        },
+        {
+          "type": "bend",
+          "named": true
+        },
+        {
+          "type": "builtin_function_call",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "match",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "object_definition",
+          "named": true
+        },
+        {
+          "type": "open",
+          "named": true
+        },
+        {
+          "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "switch",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "list",
     "named": true,
     "fields": {},
@@ -407,6 +506,10 @@
         },
         {
           "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "lambda",
           "named": true
         },
         {
@@ -605,6 +708,10 @@
           "named": true
         },
         {
+          "type": "lambda",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -675,6 +782,10 @@
           "named": true
         },
         {
+          "type": "lambda",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -719,6 +830,10 @@
         },
         {
           "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "lambda",
           "named": true
         },
         {
@@ -914,6 +1029,10 @@
   },
   {
     "type": "if",
+    "named": false
+  },
+  {
+    "type": "lambda",
     "named": false
   },
   {

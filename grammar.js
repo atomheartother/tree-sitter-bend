@@ -93,6 +93,7 @@ module.exports = grammar({
       $.builtin_function_call,
       $.function_call,
       $.list,
+      $.lambda
     )),
 
     builtin_function_call: $ => seq(
@@ -117,6 +118,14 @@ module.exports = grammar({
       ':',
       $.bend_when,
       $.bend_else,
+    ),
+
+    lambda: $ => seq(
+      'lambda',
+      $.identifier,
+      repeat(seq(',', $.identifier)),
+      ':',
+      choice($._statement, $._rValue)
     ),
 
     bend_when: $ => seq(

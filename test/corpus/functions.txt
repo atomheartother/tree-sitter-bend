@@ -73,14 +73,28 @@ def main:
           (number))))))
 
 ==================
-Switch/Case
+Lambda
 ==================
-def is_even(x):
-  if x % 2 == 0:
-    return "even"
-  else:
-    return "odd"
 
 def main:
-  return is_even(7)
+  mul_2 = lambda x: x * 2
+  return mul_2(7)
+
+---
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    body: (block
+      (assignment_operation
+        (identifier)
+        (lambda
+          (identifier)
+          (variable
+            (identifier))
+          (number)))
+      (return_statement
+        (function_call
+          name: (identifier)
+          (number))))))
 
