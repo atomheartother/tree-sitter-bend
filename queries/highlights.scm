@@ -1,17 +1,48 @@
+(comment) @comment @spell
+
+[
+  "-"
+  "="
+  "!="
+  "*"
+  "**"
+  "&&"
+  "+"
+  "<"
+  "<="
+  ">="
+  "=="
+  ">"
+  "||"
+] @operator
+
+[
+ "("
+ ")"
+ "{"
+ "}"
+ "["
+ "]"
+] @punctuation.bracket
+
+"." @delimiter
+
+
 "def" @keyword
 "return" @keyword
 "object" @keyword
 "if" @keyword
 "else" @keyword
 "switch" @keyword
-"match" @keyword
-"fold" @keyword
 "case" @keyword
 "type" @keyword
 "open" @keyword
-"bend" @keyword
 "when" @keyword
 "lambda" @keyword
+
+"match" @keyword
+"fold" @keyword
+"bend" @keyword
 
 (function_declaration name: (identifier) @function)
 (function_call name: (identifier) @function)
@@ -25,21 +56,3 @@
 (variable property: (identifier) @property)
 (enum (identifier) @type)
 (enum value: (identifier) @property)
-
-"-" @operator
-"=" @operator
-"!=" @operator
-"*" @operator
-"**" @operator
-"&&" @operator
-"+" @operator
-"<" @operator
-"<=" @operator
-">=" @operator
-"==" @operator
-">" @operator
-"||" @operator
-
-"." @delimiter
-
-(comment) @comment

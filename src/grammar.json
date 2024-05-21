@@ -1290,12 +1290,8 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "FIELD",
-              "name": "tilde",
-              "content": {
-                "type": "STRING",
-                "value": "~"
-              }
+              "type": "STRING",
+              "value": "~"
             },
             {
               "type": "SYMBOL",

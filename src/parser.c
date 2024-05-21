@@ -19,9 +19,9 @@
 #define ALIAS_COUNT 0
 #define TOKEN_COUNT 48
 #define EXTERNAL_TOKEN_COUNT 0
-#define FIELD_COUNT 6
+#define FIELD_COUNT 5
 #define MAX_ALIAS_SEQUENCE_LENGTH 6
-#define PRODUCTION_ID_COUNT 10
+#define PRODUCTION_ID_COUNT 9
 
 enum ts_symbol_identifiers {
   anon_sym_type = 1,
@@ -732,8 +732,7 @@ enum ts_field_identifiers {
   field_name = 2,
   field_parameters = 3,
   field_property = 4,
-  field_tilde = 5,
-  field_value = 6,
+  field_value = 5,
 };
 
 static const char * const ts_field_names[] = {
@@ -742,7 +741,6 @@ static const char * const ts_field_names[] = {
   [field_name] = "name",
   [field_parameters] = "parameters",
   [field_property] = "property",
-  [field_tilde] = "tilde",
   [field_value] = "value",
 };
 
@@ -755,7 +753,6 @@ static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
   [6] = {.index = 7, .length = 1},
   [7] = {.index = 8, .length = 3},
   [8] = {.index = 11, .length = 1},
-  [9] = {.index = 12, .length = 1},
 };
 
 static const TSFieldMapEntry ts_field_map_entries[] = {
@@ -779,8 +776,6 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_parameters, 2},
   [11] =
     {field_value, 1},
-  [12] =
-    {field_tilde, 0},
 };
 
 static const TSSymbol ts_alias_sequences[PRODUCTION_ID_COUNT][MAX_ALIAS_SEQUENCE_LENGTH] = {
@@ -36572,7 +36567,7 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [1804] = {.entry = {.count = 1, .reusable = true}}, SHIFT(970),
   [1806] = {.entry = {.count = 1, .reusable = true}}, SHIFT(156),
   [1808] = {.entry = {.count = 1, .reusable = true}}, SHIFT(370),
-  [1810] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_object_property, 2, 0, 9),
+  [1810] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_object_property, 2, 0, 0),
   [1812] = {.entry = {.count = 1, .reusable = true}}, SHIFT(1015),
   [1814] = {.entry = {.count = 1, .reusable = true}}, SHIFT(704),
   [1816] = {.entry = {.count = 1, .reusable = true}}, SHIFT(465),

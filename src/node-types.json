@@ -760,18 +760,7 @@
   {
     "type": "object_property",
     "named": true,
-    "fields": {
-      "tilde": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "~",
-            "named": false
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": false,
       "required": true,

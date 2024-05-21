@@ -224,7 +224,7 @@ module.exports = grammar({
     object_property: $ => choice(
       $.identifier,
       seq(
-        field('tilde', '\~'),
+        '~',
         $.identifier
       )
     ),
